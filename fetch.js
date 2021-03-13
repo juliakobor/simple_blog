@@ -6,6 +6,7 @@ fetchPromise
         else return response.json()
     })
     .then(data => {
+        console.log(data)
         createPost(data)
     })
     .catch(error => {
@@ -15,8 +16,8 @@ fetchPromise
 
 function createPost(data) {
     data.forEach(item => {
-        const post_template = "<article>" + "<h3>" + item.title + "</h3>" + "<p>" + item.body.slice(0, 100) + "</p>" + "<a href='post.html'>" + "Learn more" + "<i class='fas fa-arrow-right'></i>" + "</a>" + "</article>";
-        document.getElementById("posts_container").innerHTML += post_template;
+        const posts_template = "<article>" + "<h3>" + item.title + "</h3>" + "<p>" + item.body.slice(0, 100) + "</p>" + "<a href='post.html'>" + "Learn more" + "<i class='fas fa-arrow-right'></i>" + "</a>" + "</article>";
+        document.getElementById("posts_container").innerHTML += posts_template;
     })
 }
 
